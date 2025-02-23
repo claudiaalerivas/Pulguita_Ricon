@@ -6,8 +6,11 @@ const JUMP_VELOCITY = -400.0
 
 @onready var animated_sprite = $AnimatedSprite2D  # Referencia al AnimatedSprite2D
 @onready var _coins_collected_label = get_parent().get_node("CoinsCollectedLabel")
+@onready var _timer = get_parent().get_parent().get_node("Node2D")
+
 @onready var _coin_sound = $CoinSound
 var coins_collected = 0
+var total_coins = 8
 
 func _physics_process(delta: float) -> void:
 	# gravedad.
@@ -49,3 +52,13 @@ func _physics_process(delta: float) -> void:
 	velocity.y = direction.y * SPEED  # Movimiento vertical
 
 	move_and_slide()
+
+	
+
+
+func _on_finished_line_body_entered(body: Node2D) -> void:
+	if coins_collected == 8 and _timer.time > 0:
+		print("ganaste ")
+	if _timer.time <= 0: 
+		print('perdiste') 
+	

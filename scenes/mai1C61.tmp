@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://b3vwsfm02u728"]
+[gd_scene load_steps=30 format=4 uid="uid://b3vwsfm02u728"]
 
 [ext_resource type="Texture2D" uid="uid://baqo1xaidbyyg" path="res://assets/TileSet/Grass.png" id="1_1njfh"]
 [ext_resource type="Texture2D" uid="uid://b3v8raao717vk" path="res://assets/TileSet/Tile_119.png" id="2_sttii"]
@@ -14,7 +14,6 @@
 [ext_resource type="AudioStream" uid="uid://3ttnv057cagv" path="res://assets/Sounds/coin_collected.wav" id="11_wo44y"]
 [ext_resource type="FontFile" uid="uid://b0ykhqg7vj7rs" path="res://assets/Fonts/Pixel Bug.otf" id="12_65gum"]
 [ext_resource type="Texture2D" uid="uid://csqefd6h4nmrb" path="res://assets/Coins/coin.png" id="14_llbf8"]
-[ext_resource type="Texture2D" uid="uid://civbh5ths4vat" path="res://assets/Icons/clock.png" id="15_ff6qr"]
 
 [sub_resource type="GDScript" id="GDScript_4cngk"]
 script/source = "extends Node2D
@@ -31,10 +30,10 @@ func _ready() -> void:
 
 func _on_timer_timeout():
 	time -= 1
-	timer_label.text = str(time)
-	if time == 0:
-			print('perdiste')
-			$Timer.stop()
+	timer_label.text = \"Time: \" + str(time)
+	
+if timer == 0:
+		print('perdiste')
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -202,10 +201,10 @@ size = Vector2(36, 35.5)
 [sub_resource type="LabelSettings" id="LabelSettings_b3yn7"]
 font = ExtResource("12_65gum")
 font_size = 30
+font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hja2u"]
 font = ExtResource("12_65gum")
-font_size = 30
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_630up"]
 size = Vector2(65, 19)
@@ -280,7 +279,7 @@ offset_right = -438.0
 offset_bottom = -261.0
 label_settings = SubResource("LabelSettings_b3yn7")
 
-[node name="Coin" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -519.0
 offset_top = -286.0
 offset_right = -489.0
@@ -290,18 +289,11 @@ texture = ExtResource("14_llbf8")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="TimerLabel" type="Label" parent="."]
-offset_left = -401.0
-offset_top = -283.0
-offset_right = -335.0
-offset_bottom = -252.0
+offset_left = 407.0
+offset_top = -281.0
+offset_right = 473.0
+offset_bottom = -258.0
 label_settings = SubResource("LabelSettings_hja2u")
-
-[node name="Clock" type="TextureRect" parent="."]
-offset_left = -448.0
-offset_top = -286.0
-offset_right = -415.0
-offset_bottom = -253.0
-texture = ExtResource("15_ff6qr")
 
 [node name="FinishedLine" type="Area2D" parent="."]
 
