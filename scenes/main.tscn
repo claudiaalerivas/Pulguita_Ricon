@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://b3vwsfm02u728"]
+[gd_scene load_steps=27 format=4 uid="uid://b3vwsfm02u728"]
 
 [ext_resource type="Texture2D" uid="uid://baqo1xaidbyyg" path="res://assets/TileSet/Grass.png" id="1_1njfh"]
 [ext_resource type="Texture2D" uid="uid://b3v8raao717vk" path="res://assets/TileSet/Tile_119.png" id="2_sttii"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://be25uugfnkbst" path="res://assets/Player/pulguita1.png" id="7_pcdjm"]
 [ext_resource type="Texture2D" uid="uid://yla2pp848b8n" path="res://assets/Player/pulguita7.png" id="9_e3785"]
 [ext_resource type="PackedScene" uid="uid://bs63sy5kaj0e6" path="res://scenes/coin.tscn" id="11_jtdl0"]
+[ext_resource type="AudioStream" uid="uid://3ttnv057cagv" path="res://assets/Sounds/coin_collected.wav" id="11_wo44y"]
+[ext_resource type="FontFile" uid="uid://b0ykhqg7vj7rs" path="res://assets/Fonts/Pixel Bug.otf" id="12_65gum"]
 
 [sub_resource type="GDScript" id="GDScript_4cngk"]
 script/source = "extends Node2D
@@ -186,6 +188,9 @@ animations = [{
 size = Vector2(36, 35.5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_b3yn7"]
+font = ExtResource("12_65gum")
+font_size = 30
+font_color = Color(1, 0, 0, 1)
 
 [node name="Node2D" type="Node2D"]
 script = SubResource("GDScript_4cngk")
@@ -221,10 +226,19 @@ animation = &"walk"
 position = Vector2(-484, -254.25)
 shape = SubResource("RectangleShape2D_8nuig")
 
+[node name="CoinSound" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("11_wo44y")
+
 [node name="Pickups" type="Node2D" parent="."]
 
 [node name="Coin" parent="Pickups" instance=ExtResource("11_jtdl0")]
 position = Vector2(299, -95)
+
+[node name="Coin2" parent="Pickups" instance=ExtResource("11_jtdl0")]
+position = Vector2(-183, 18)
+
+[node name="Coin3" parent="Pickups" instance=ExtResource("11_jtdl0")]
+position = Vector2(-416, -89)
 
 [node name="CoinsCollectedLabel" type="Label" parent="."]
 offset_left = -478.0
@@ -234,3 +248,5 @@ offset_bottom = -261.0
 label_settings = SubResource("LabelSettings_b3yn7")
 
 [connection signal="body_entered" from="Pickups/Coin" to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Pickups/Coin2" to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Pickups/Coin3" to="." method="_on_body_entered"]

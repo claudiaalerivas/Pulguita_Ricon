@@ -14,5 +14,5 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		body.coins_collected += 1
 		body._coins_collected_label.text = str(body.coins_collected)
-		# body._coin_sound.play()
+		body._coin_sound.play()
 		queue_free()
