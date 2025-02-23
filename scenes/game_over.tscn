@@ -1,0 +1,105 @@
+[gd_scene load_steps=11 format=3 uid="uid://cd8ufu0b87ajn"]
+
+[ext_resource type="Texture2D" uid="uid://blvudvsvf0wc1" path="res://assets/BackgorundImageMenu/fondo_game_over.png" id="1_mp1f7"]
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_pndyh"]
+[ext_resource type="Texture2D" uid="uid://cdawgo6pmwg7u" path="res://assets/PlayerMenu/cuy_perder.png" id="2_j0xrq"]
+[ext_resource type="FontFile" uid="uid://b0ykhqg7vj7rs" path="res://assets/Fonts/Pixel Bug.otf" id="3_b0fxw"]
+[ext_resource type="AudioStream" uid="uid://b5q0ld84ks5by" path="res://assets/Sounds/you_lose.wav" id="8_a731k"]
+[ext_resource type="Script" path="res://scenes/try_again.gd" id="9_u5hhb"]
+[ext_resource type="Script" path="res://scenes/exit.gd" id="10_724s0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_skxth"]
+font = ExtResource("3_b0fxw")
+font_size = 45
+font_color = Color(0.503244, 0.110904, 0.0949668, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5posr"]
+bg_color = Color(0.289771, 0.907224, 0.5402, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4ntm"]
+bg_color = Color(0.976288, 0.31938, 0.575293, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pndyh")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_right = 573.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mp1f7")
+
+[node name="CuyImage" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 155.0
+offset_right = 806.0
+offset_bottom = 499.0
+texture = ExtResource("2_j0xrq")
+
+[node name="Title" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 88.0
+offset_right = 840.0
+offset_bottom = 180.0
+text = "Le HAS FALLADO a Pulguita"
+label_settings = SubResource("LabelSettings_skxth")
+
+[node name="MenuButton" type="MenuButton" parent="Background"]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 523.0
+offset_right = 828.0
+offset_bottom = 606.0
+
+[node name="TryAgain" type="Button" parent="Background/MenuButton"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 14.0
+offset_right = 329.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_b0fxw")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_5posr")
+text = "Inténtalo de Nuevo"
+script = ExtResource("9_u5hhb")
+
+[node name="Exit" type="Button" parent="Background/MenuButton"]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 15.0
+offset_right = 466.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_b0fxw")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_t4ntm")
+text = "Salir"
+script = ExtResource("10_724s0")
+
+[node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_a731k")
+
+[connection signal="pressed" from="Background/MenuButton/TryAgain" to="Background/MenuButton/TryAgain" method="_on_pressed"]
+[connection signal="pressed" from="Background/MenuButton/Exit" to="Background/MenuButton/Exit" method="_on_pressed"]

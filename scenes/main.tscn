@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://baqo1xaidbyyg" path="res://assets/TileSet/Grass.png" id="1_1njfh"]
 [ext_resource type="Texture2D" uid="uid://b3v8raao717vk" path="res://assets/TileSet/Tile_119.png" id="2_sttii"]
-[ext_resource type="Script" path="res://scenes/player.gd" id="3_swhc2"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="3_swhc2"]
 [ext_resource type="Texture2D" uid="uid://ytjtjiy0nwtj" path="res://assets/Player/pulguita2.png" id="3_vi81q"]
 [ext_resource type="Texture2D" uid="uid://bx0s34c450hkj" path="res://assets/Player/pulguita3.png" id="4_2sfnu"]
 [ext_resource type="Texture2D" uid="uid://qfjnpca5gqvi" path="res://assets/Player/pulguita5.png" id="5_7w0fb"]
@@ -21,7 +21,7 @@ script/source = "extends Node2D
 
 @onready var timer_label = $TimerLabel
 
-var time = 20.0
+var time = 10.0
 func _ready() -> void:
 	$Timer.start()
 	var rect = get_viewport_rect()  # Obtiene el tamaño del viewport
@@ -32,8 +32,8 @@ func _on_timer_timeout():
 	time -= 1
 	timer_label.text = str(time)
 	if time == 0:
-			print('perdiste')
-			$Timer.stop()
+		get_tree().change_scene_to_file(\"res://scenes/game_over.tscn\")
+		$Timer.stop()
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
