@@ -58,5 +58,5 @@ func _physics_process(delta: float) -> void:
 
 func _on_finished_line_body_entered(body: Node2D) -> void:
 	if coins_collected == 8 and _timer.time > 0:
-		print("ganaste ")
+		get_tree().change_scene_to_file("res://scenes/winner_screen.tscn")
 	

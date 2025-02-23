@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2sobxrva7p4m"]
+
+[ext_resource type="Texture2D" uid="uid://kkhkf0x6fmi4" path="res://assets/BackgorundImageMenu/fondo_fin_juego.png" id="1_7jurg"]
+[ext_resource type="Script" path="res://Scripts/winner_screen.gd" id="1_21x4j"]
+[ext_resource type="Texture2D" uid="uid://bxphbdocdn8i7" path="res://assets/PlayerMenu/asado.png" id="2_cnral"]
+[ext_resource type="FontFile" uid="uid://b0ykhqg7vj7rs" path="res://assets/Fonts/Pixel Bug.otf" id="3_x4j0m"]
+[ext_resource type="Script" path="res://Scripts/exit_winner.gd" id="4_nhav0"]
+[ext_resource type="AudioStream" uid="uid://bxnji3uqmh0s5" path="res://assets/Sounds/you_win.wav" id="6_y8vv1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c8hcn"]
+font = ExtResource("3_x4j0m")
+font_size = 80
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7t01v"]
+bg_color = Color(0.976471, 0.317647, 0.576471, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="WinnerScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_21x4j")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_7jurg")
+
+[node name="CuyImage" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 631.667
+offset_top = 256.667
+offset_right = 1383.67
+offset_bottom = 876.667
+scale = Vector2(0.945, 0.945)
+texture = ExtResource("2_cnral")
+
+[node name="Title" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 66.6667
+offset_right = 1806.0
+offset_bottom = 294.667
+theme_override_font_sizes/font_size = 30
+text = "¡Felicidades!
+Has cumplido el propósito de Pulguita"
+label_settings = SubResource("LabelSettings_c8hcn")
+horizontal_alignment = 1
+
+[node name="Exit" type="Button" parent="Background"]
+layout_mode = 0
+offset_left = 841.667
+offset_top = 880.0
+offset_right = 1066.67
+offset_bottom = 965.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_x4j0m")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_7t01v")
+text = "Salir"
+script = ExtResource("4_nhav0")
+
+[node name="WinnerSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_y8vv1")
+
+[connection signal="pressed" from="Background/Exit" to="Background/Exit" method="_on_pressed"]
