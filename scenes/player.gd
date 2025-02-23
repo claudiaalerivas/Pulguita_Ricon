@@ -5,6 +5,8 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 
 @onready var animated_sprite = $AnimatedSprite2D  # Referencia al AnimatedSprite2D
+@onready var _coins_collected_label = get_parent().get_node("CoinsCollectedLabel")
+var coins_collected = 0
 
 func _physics_process(delta: float) -> void:
 	# gravedad.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://b3vwsfm02u728"]
+[gd_scene load_steps=25 format=4 uid="uid://b3vwsfm02u728"]
 
 [ext_resource type="Texture2D" uid="uid://baqo1xaidbyyg" path="res://assets/TileSet/Grass.png" id="1_1njfh"]
 [ext_resource type="Texture2D" uid="uid://b3v8raao717vk" path="res://assets/TileSet/Tile_119.png" id="2_sttii"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://4kuyysfs7ogm" path="res://assets/Player/pulguita6.png" id="7_mhugh"]
 [ext_resource type="Texture2D" uid="uid://be25uugfnkbst" path="res://assets/Player/pulguita1.png" id="7_pcdjm"]
 [ext_resource type="Texture2D" uid="uid://yla2pp848b8n" path="res://assets/Player/pulguita7.png" id="9_e3785"]
+[ext_resource type="PackedScene" uid="uid://bs63sy5kaj0e6" path="res://scenes/coin.tscn" id="11_jtdl0"]
 
 [sub_resource type="GDScript" id="GDScript_4cngk"]
 script/source = "extends Node2D
@@ -184,6 +185,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nuig"]
 size = Vector2(36, 35.5)
 
+[sub_resource type="LabelSettings" id="LabelSettings_b3yn7"]
+
 [node name="Node2D" type="Node2D"]
 script = SubResource("GDScript_4cngk")
 
@@ -202,6 +205,7 @@ tile_map_data = PackedByteArray("AADq/wQAAAAAAAAAAADq/wUAAAAAAAAAAADq/wYAAAAAAAA
 tile_set = SubResource("TileSet_7llo5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, -1)
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(74, 28)
@@ -216,3 +220,17 @@ animation = &"walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(-484, -254.25)
 shape = SubResource("RectangleShape2D_8nuig")
+
+[node name="Pickups" type="Node2D" parent="."]
+
+[node name="Coin" parent="Pickups" instance=ExtResource("11_jtdl0")]
+position = Vector2(299, -95)
+
+[node name="CoinsCollectedLabel" type="Label" parent="."]
+offset_left = -478.0
+offset_top = -284.0
+offset_right = -438.0
+offset_bottom = -261.0
+label_settings = SubResource("LabelSettings_b3yn7")
+
+[connection signal="body_entered" from="Pickups/Coin" to="." method="_on_body_entered"]
