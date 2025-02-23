@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1hqv26mh57kc"
-path="res://.godot/imported/pulguita1.png-931b47ffa57ac51fb3dc92dc6c467751.ctex"
+uid="uid://bgbbav8broh6o"
+path="res://.godot/imported/logo.png-a74929a53e119d17ca3a3e8c9f802bf3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/PlayerMenu/pulguita1.png"
-dest_files=["res://.godot/imported/pulguita1.png-931b47ffa57ac51fb3dc92dc6c467751.ctex"]
+source_file="res://assets/BackgorundImageMenu/logo.png"
+dest_files=["res://.godot/imported/logo.png-a74929a53e119d17ca3a3e8c9f802bf3.ctex"]
 
 [params]
 

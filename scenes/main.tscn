@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://baqo1xaidbyyg" path="res://assets/TileSet/Grass.png" id="1_1njfh"]
 [ext_resource type="Texture2D" uid="uid://b3v8raao717vk" path="res://assets/TileSet/Tile_119.png" id="2_sttii"]
-[ext_resource type="Script" path="res://scenes/player.gd" id="3_swhc2"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="3_swhc2"]
 [ext_resource type="Texture2D" uid="uid://ytjtjiy0nwtj" path="res://assets/Player/pulguita2.png" id="3_vi81q"]
 [ext_resource type="Texture2D" uid="uid://bx0s34c450hkj" path="res://assets/Player/pulguita3.png" id="4_2sfnu"]
 [ext_resource type="Texture2D" uid="uid://qfjnpca5gqvi" path="res://assets/Player/pulguita5.png" id="5_7w0fb"]
@@ -236,10 +236,25 @@ stream = ExtResource("11_wo44y")
 position = Vector2(299, -95)
 
 [node name="Coin2" parent="Pickups" instance=ExtResource("11_jtdl0")]
-position = Vector2(-183, 18)
+position = Vector2(83, -164)
 
 [node name="Coin3" parent="Pickups" instance=ExtResource("11_jtdl0")]
-position = Vector2(-416, -89)
+position = Vector2(425, 22)
+
+[node name="Coin4" parent="Pickups" instance=ExtResource("11_jtdl0")]
+position = Vector2(424, 73)
+
+[node name="Coin5" parent="Pickups" instance=ExtResource("11_jtdl0")]
+position = Vector2(-348, 82)
+
+[node name="Coin6" parent="Pickups" instance=ExtResource("11_jtdl0")]
+position = Vector2(-219, -107)
+
+[node name="Coin7" parent="Pickups" instance=ExtResource("11_jtdl0")]
+position = Vector2(-351, 208)
+
+[node name="Coin8" parent="Pickups" instance=ExtResource("11_jtdl0")]
+position = Vector2(360, 208)
 
 [node name="CoinsCollectedLabel" type="Label" parent="."]
 offset_left = -478.0
@@ -258,3 +273,8 @@ texture = ExtResource("14_llbf8")
 [connection signal="body_entered" from="Pickups/Coin" to="." method="_on_body_entered"]
 [connection signal="body_entered" from="Pickups/Coin2" to="." method="_on_body_entered"]
 [connection signal="body_entered" from="Pickups/Coin3" to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Pickups/Coin4" to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Pickups/Coin5" to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Pickups/Coin6" to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Pickups/Coin7" to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Pickups/Coin8" to="." method="_on_body_entered"]
