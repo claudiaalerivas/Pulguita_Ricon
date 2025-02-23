@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cdawgo6pmwg7u" path="res://assets/PlayerMenu/cuy_perder.png" id="2_j0xrq"]
 [ext_resource type="FontFile" uid="uid://b0ykhqg7vj7rs" path="res://assets/Fonts/Pixel Bug.otf" id="3_b0fxw"]
 [ext_resource type="AudioStream" uid="uid://b5q0ld84ks5by" path="res://assets/Sounds/you_lose.wav" id="8_a731k"]
-[ext_resource type="Script" path="res://scenes/try_again.gd" id="9_u5hhb"]
-[ext_resource type="Script" path="res://scenes/exit.gd" id="10_724s0"]
+[ext_resource type="Script" path="res://Scripts/try_again.gd" id="9_u5hhb"]
+[ext_resource type="Script" path="res://Scripts/exit.gd" id="10_724s0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_skxth"]
 font = ExtResource("3_b0fxw")
