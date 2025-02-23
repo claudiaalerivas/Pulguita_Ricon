@@ -21,8 +21,7 @@ script/source = "extends Node2D
 
 @onready var timer_label = $TimerLabel
 
-var time = 60.0
-# Called when the node enters the scene tree for the first time.
+var time = 20.0
 func _ready() -> void:
 	$Timer.start()
 	var rect = get_viewport_rect()  # Obtiene el tamaño del viewport

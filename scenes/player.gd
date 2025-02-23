@@ -59,6 +59,4 @@ func _physics_process(delta: float) -> void:
 func _on_finished_line_body_entered(body: Node2D) -> void:
 	if coins_collected == 8 and _timer.time > 0:
 		print("ganaste ")
-	if _timer.time <= 0: 
-		print('perdiste') 
 	
