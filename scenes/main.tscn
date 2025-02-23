@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://b3vwsfm02u728"]
+[gd_scene load_steps=28 format=4 uid="uid://b3vwsfm02u728"]
 
 [ext_resource type="Texture2D" uid="uid://baqo1xaidbyyg" path="res://assets/TileSet/Grass.png" id="1_1njfh"]
 [ext_resource type="Texture2D" uid="uid://b3v8raao717vk" path="res://assets/TileSet/Tile_119.png" id="2_sttii"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bs63sy5kaj0e6" path="res://scenes/coin.tscn" id="11_jtdl0"]
 [ext_resource type="AudioStream" uid="uid://3ttnv057cagv" path="res://assets/Sounds/coin_collected.wav" id="11_wo44y"]
 [ext_resource type="FontFile" uid="uid://b0ykhqg7vj7rs" path="res://assets/Fonts/Pixel Bug.otf" id="12_65gum"]
+[ext_resource type="Texture2D" uid="uid://csqefd6h4nmrb" path="res://assets/Coins/coin.png" id="14_llbf8"]
 
 [sub_resource type="GDScript" id="GDScript_4cngk"]
 script/source = "extends Node2D
@@ -246,6 +247,13 @@ offset_top = -284.0
 offset_right = -438.0
 offset_bottom = -261.0
 label_settings = SubResource("LabelSettings_b3yn7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -519.0
+offset_top = -286.0
+offset_right = -489.0
+offset_bottom = -256.0
+texture = ExtResource("14_llbf8")
 
 [connection signal="body_entered" from="Pickups/Coin" to="." method="_on_body_entered"]
 [connection signal="body_entered" from="Pickups/Coin2" to="." method="_on_body_entered"]
