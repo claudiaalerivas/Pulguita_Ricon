@@ -21,7 +21,7 @@ script/source = "extends Node2D
 
 @onready var timer_label = $TimerLabel
 
-var time = 10.0
+var time = 60.0
 func _ready() -> void:
 	$Timer.start()
 	var rect = get_viewport_rect()  # Obtiene el tamaño del viewport
