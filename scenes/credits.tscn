@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqu6gttgsnryu"]
+
+[ext_resource type="Script" path="res://Scripts/credits.gd" id="1_fjoy6"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 161.0
+offset_bottom = 103.0
+script = ExtResource("1_fjoy6")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 7.168
+anchor_bottom = 6.252
+offset_right = -0.0480957
+offset_bottom = 4.04395
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.89, 0.597042, 0.1869, 0.709804)
+
+[node name="Margin" type="MarginContainer" parent="Background"]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -388.0
+offset_top = -600.0
+offset_right = 429.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Text" type="RichTextLabel" parent="Background/Margin"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.89, 0.88911, 0.8722, 1)
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]LICENCIA & CRÉDITOS
+
+Doménica Alejandra Nieto León
+Claudia Alejandra Rivas Estupiñan 
+PROGRAMADORES  
+
+[left]MÚSICA:
+									Fondo: Child’s Nightmare						Coin: Retro Collectable								
+									Compositor: Patrick De Arteaga.			Compositor: EtherAudio										
+									Creative Commons (CC)							Creative Commons (CC)										
+
+									Derrota: Sci-Fi Retro Sound					Victoria:  Jump-Small
+									Compositor: EVRetro								Compositor: LittleRobotSoundFactory
+									Creative Commons (CC)							Creative Commons (CC)
+
+ASSETS PERSONAJE PRINCIPAL:
+			Hecho por  Inteligencia aritificial
+
+MENUS:
+	Principal: Pixel art rural landscape background				Pausa:  Pixel Art Skyline - 4K Ultra HD Wallpaper
+	Autor: (Freepick) pikisuperstar											Autor: Marta Vidal González
+
+																	Derrota: Pixel art landscape
+																				Autor: HeavyPxls"
+
+[node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 994.0
+offset_bottom = 543.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

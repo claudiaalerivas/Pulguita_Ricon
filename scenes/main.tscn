@@ -27,9 +27,6 @@ var time = 60.0
 func _ready() -> void:
 	$BackgroundSound.play()
 	$Timer.start()
-	var rect = get_viewport_rect()  # Obtiene el tamaño del viewport
-	print(\"Tamaño del viewport:\", rect.size)
-
 
 func _on_timer_timeout():
 	time -= 1
@@ -38,9 +35,6 @@ func _on_timer_timeout():
 		get_tree().change_scene_to_file(\"res://scenes/game_over.tscn\")
 		$Timer.stop()
 		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 "
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_16el2"]
