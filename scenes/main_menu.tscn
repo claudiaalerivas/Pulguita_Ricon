@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://1c052lshrs3x"]
+[gd_scene load_steps=9 format=3 uid="uid://1c052lshrs3x"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_gp15q"]
 [ext_resource type="Texture2D" uid="uid://hyd0ft32xfw4" path="res://assets/BackgorundImageMenu/fondo_menu_principal.png" id="1_ya8or"]
 [ext_resource type="FontFile" uid="uid://b0ykhqg7vj7rs" path="res://assets/Fonts/Pixel Bug.otf" id="2_p8l6x"]
 [ext_resource type="Texture2D" uid="uid://c1hqv26mh57kc" path="res://assets/PlayerMenu/pulguita1.png" id="3_nnm70"]
 [ext_resource type="Texture2D" uid="uid://bgbbav8broh6o" path="res://assets/BackgorundImageMenu/logo.png" id="4_6154e"]
+[ext_resource type="AudioStream" uid="uid://c3c2t2tiaomd4" path="res://assets/Sounds/general_sound.mp3" id="6_bwca5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwk55"]
 bg_color = Color(0, 0.917647, 0.713726, 1)
@@ -74,6 +75,11 @@ offset_top = 74.0
 offset_right = 924.0
 offset_bottom = 354.0
 texture = ExtResource("4_6154e")
+
+[node name="GeneralSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_bwca5")
+volume_db = -13.419
+pitch_scale = 0.89
 
 [connection signal="pressed" from="Background/Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Background/Buttons/GetOutButton" to="." method="_on_get_out_button_pressed"]

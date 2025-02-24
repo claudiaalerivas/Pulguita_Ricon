@@ -1,0 +1,102 @@
+[gd_scene load_steps=10 format=3 uid="uid://7mjpchaeg8w"]
+
+[ext_resource type="Texture2D" uid="uid://ddswfu7xwvm7j" path="res://assets/BackgorundImageMenu/fondo_pausa.png" id="1_6at6o"]
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_iksa3"]
+[ext_resource type="FontFile" uid="uid://b0ykhqg7vj7rs" path="res://assets/Fonts/Pixel Bug.otf" id="2_houc8"]
+[ext_resource type="Texture2D" uid="uid://csqefd6h4nmrb" path="res://assets/Coins/coin.png" id="3_8u55a"]
+[ext_resource type="AudioStream" uid="uid://c3c2t2tiaomd4" path="res://assets/Sounds/general_sound.mp3" id="5_tl558"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sf6jy"]
+bg_color = Color(2.16588e-06, 0.711202, 0.464528, 1)
+expand_margin_left = 12.0
+expand_margin_top = 18.0
+expand_margin_right = 12.0
+expand_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65rod"]
+bg_color = Color(0.429232, 0.204729, 0.731104, 1)
+expand_margin_left = 22.0
+expand_margin_top = 18.0
+expand_margin_right = 22.0
+expand_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6e3bg"]
+bg_color = Color(0.784314, 0.501961, 0.619608, 0.741176)
+expand_margin_left = 18.0
+expand_margin_right = 18.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxtq4"]
+bg_color = Color(0.998462, 0.194212, 0.747704, 1)
+expand_margin_left = 28.0
+expand_margin_top = 18.0
+expand_margin_right = 28.0
+expand_margin_bottom = 18.0
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_iksa3")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_6at6o")
+
+[node name="Buttons" type="VBoxContainer" parent="Background"]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 216.0
+offset_right = 752.0
+offset_bottom = 391.0
+theme_override_constants/separation = 52
+
+[node name="ResumeButton" type="Button" parent="Background/Buttons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_houc8")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_sf6jy")
+text = "Reanudar Partida"
+
+[node name="NewGameButton" type="Button" parent="Background/Buttons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_houc8")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_65rod")
+text = "Iniciar nuevo juego"
+
+[node name="ExitButton" type="Button" parent="Background/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_houc8")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_6e3bg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oxtq4")
+text = "Salir
+"
+
+[node name="CoinIcon" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 69.0
+offset_right = 128.0
+offset_bottom = 109.0
+texture = ExtResource("3_8u55a")
+
+[node name="CoinsLabel" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 77.0
+offset_right = 222.0
+offset_bottom = 116.0
+theme_override_fonts/font = ExtResource("2_houc8")
+theme_override_font_sizes/font_size = 30
+
+[node name="GeneralSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_tl558")
+volume_db = -10.735
+pitch_scale = 0.79
+
+[connection signal="pressed" from="Background/Buttons/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Background/Buttons/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="Background/Buttons/ExitButton" to="." method="_on_exit_button_pressed"]

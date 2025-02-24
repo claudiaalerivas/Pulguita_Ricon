@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://b3vwsfm02u728"]
+[gd_scene load_steps=33 format=4 uid="uid://b3vwsfm02u728"]
 
 [ext_resource type="Texture2D" uid="uid://baqo1xaidbyyg" path="res://assets/TileSet/Grass.png" id="1_1njfh"]
 [ext_resource type="Texture2D" uid="uid://b3v8raao717vk" path="res://assets/TileSet/Tile_119.png" id="2_sttii"]
@@ -15,6 +15,8 @@
 [ext_resource type="FontFile" uid="uid://b0ykhqg7vj7rs" path="res://assets/Fonts/Pixel Bug.otf" id="12_65gum"]
 [ext_resource type="Texture2D" uid="uid://csqefd6h4nmrb" path="res://assets/Coins/coin.png" id="14_llbf8"]
 [ext_resource type="Texture2D" uid="uid://civbh5ths4vat" path="res://assets/Icons/clock.png" id="15_ff6qr"]
+[ext_resource type="Texture2D" uid="uid://rhvn0g48gmi4" path="res://assets/Icons/Pausa.png" id="16_uo06n"]
+[ext_resource type="AudioStream" uid="uid://bve1mv4ilxf5r" path="res://assets/Sounds/background_sound.ogg" id="17_610or"]
 
 [sub_resource type="GDScript" id="GDScript_4cngk"]
 script/source = "extends Node2D
@@ -23,6 +25,7 @@ script/source = "extends Node2D
 
 var time = 60.0
 func _ready() -> void:
+	$BackgroundSound.play()
 	$Timer.start()
 	var rect = get_viewport_rect()  # Obtiene el tamaño del viewport
 	print(\"Tamaño del viewport:\", rect.size)
@@ -307,6 +310,18 @@ texture = ExtResource("15_ff6qr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishedLine"]
 position = Vector2(-412, 229)
 shape = SubResource("RectangleShape2D_630up")
+
+[node name="PauseButton" type="TextureButton" parent="."]
+offset_left = 454.0
+offset_top = -259.0
+offset_right = 472.0
+offset_bottom = -241.0
+texture_normal = ExtResource("16_uo06n")
+
+[node name="BackgroundSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_610or")
+volume_db = -22.813
+panning_strength = 1.02
 
 [connection signal="body_entered" from="Pickups/Coin" to="." method="_on_body_entered"]
 [connection signal="body_entered" from="Pickups/Coin2" to="." method="_on_body_entered"]
